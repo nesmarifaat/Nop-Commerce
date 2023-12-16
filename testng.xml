@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <parameter name="browser" value=""/>
     <suite-files>
-        <suite-file path="testng.xml"/>
+
         <suite-file path="PositiveTestCases.xml"/>
         <suite-file path="NegativeTestCases.xml"/>
 

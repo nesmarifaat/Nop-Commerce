@@ -22,7 +22,7 @@ public class Utility {
         return firstNames[index];
     }
 
-//TODO: Method to generate random lastname
+    //TODO: Method to generate random lastname
     public static String getRandomLastName() {
         String[] lastNames = {
                 "Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Taylor", "Anderson", "Thomas"
@@ -34,19 +34,16 @@ public class Utility {
     }
 
 
+    //TODO: Method To select Random Index
 
-
- //TODO: Method To select Random Index
-
-    public static int generaterandom(int max)
-    {
-    Random random=new Random();
-    return random.nextInt(max)+1;
+    public static int generaterandom(int max) {
+        Random random = new Random();
+        return random.nextInt(max) + 1;
 
     }
 
 
-//TODO: Method to generate random email
+    //TODO: Method to generate random email
     public static String generateRandomEmail() {
 
         // Generate a random first name
@@ -69,26 +66,6 @@ public class Utility {
         // Return the generated email address
         return email;
     }
-
-
-///html[1]/body[1]/div[6]/div[2]/ul[2]/li/a
-
-//    public static int navigateRandomLinks() {
-//        // Find all links on the page
-//        List<WebElement> links = driver.findElements(By.xpath("//html[1]/body[1]/div[6]/div[2]/ul[2]/li/a"));
-//
-//        // Limit the number of links to 7
-//        links = links.subList(0, 7);
-//
-//        // Randomly select a link and navigate to it
-//        Random random = new Random();
-//        int randomIndex = random.nextInt(links.size());
-//        WebElement randomLink = links.get(randomIndex);
-//        randomLink.click();
-//        return randomIndex;
-//    }
-
-
 
 
 }

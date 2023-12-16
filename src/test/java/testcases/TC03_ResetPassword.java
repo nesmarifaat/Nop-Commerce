@@ -8,30 +8,21 @@ import static testcases.TC01_Registration.email;
 
 //import static testcases.TC01_Registration.Email;
 
-public class TC03_ResetPassword extends TestBase{
-    P01_HomePage homePage;
-    P03_Login loginpage;
+public class TC03_ResetPassword extends TestBase {
 
 
-    @Test(priority = 1,description = "Reset Customer Password")
+    @Test(priority = 1, description = "Reset Customer Password")
     public void resetcustomerpassword_P() throws InterruptedException {
         new P01_HomePage(driver).clickonlogintap();
         Thread.sleep(1500);
         new P03_Login(driver).clickonforgetpassword().fillemailtoresetpassword(email).clickonrecoverbutton();
         Thread.sleep(4000);
-//       homePage=new P01_HomePage(driver);
-//       loginpage=new P03_Login(driver);
-//        homePage.clickLoginTap();
-//        loginpage.resetpassword();
-//        Thread.sleep(1500);
-//        loginpage.emailtoresetpassword(Email);
-//        loginpage.clickrecoverbutton();
-//        Thread.sleep(4000);
+
     }
 
-    @Test(priority = 2,description = "Check Reset password with invalid email")
+    @Test(priority = 2, description = "Check Reset password with invalid email")
     public void resetpasswordwithinvalidemail_N() throws InterruptedException {
-        String email="nesmarifaat@hotmail.com";
+        String email = "nesmarifaat@hotmail.com";
         new P01_HomePage(driver).clickonlogintap();
         Thread.sleep(1500);
         new P03_Login(driver).clickonforgetpassword().fillemailtoresetpassword(email);

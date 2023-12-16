@@ -4,7 +4,7 @@
     <parameter name="browser" value=""/>
 
     <test name="Check Registration With Valid data">
-        <parameter name="browser" value="edge"/>
+
         <classes>
             <class name="testcases.TC01_Registration">
                 <methods>
@@ -25,98 +25,98 @@
         </classes>
     </test>
 
-<!--    <test name="Check Reset Password Functionality">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC03_ResetPassword">-->
-<!--                <methods>-->
-<!--                    <include name="resetcustomerpassword_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Check Reset Password Functionality">
+        <classes>
+            <class name="testcases.TC03_ResetPassword">
+                <methods>
+                    <include name="resetcustomerpassword_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Check Search Functionality">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC04_SearchProduct">-->
-<!--                <methods>-->
-<!--                    <include name="searchavailableproduct_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Check Search Functionality">
+        <classes>
+            <class name="testcases.TC04_SearchProduct">
+                <methods>
+                    <include name="searchavailableproduct_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Switch Currency Functionality">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC05_SwitchCurrency">-->
-<!--                <methods>-->
-<!--                    <include name="switchcurrency_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Switch Currency Functionality">
+        <classes>
+            <class name="testcases.TC05_SwitchCurrency">
+                <methods>
+                    <include name="switchcurrency_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Select Random Category, hover and select subcategory">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC06_SelectRandomCategories">-->
-<!--                <methods>-->
-<!--                    <include name="selectrandomcategory_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Select Random Category, hover and select subcategory">
+        <classes>
+            <class name="testcases.TC06_SelectRandomCategories">
+                <methods>
+                    <include name="selectrandomcategory_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test name="Check Product Filter Functionality">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC07_ColorFilter">-->
-<!--                <methods>-->
-<!--                    <include name="filterproductbycolor_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-
-<!--    <test name="Chose Random Product from Jewelry Category">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC08_SelectRandomProduct">-->
-<!--                <methods>-->
-<!--                    <include name="addproducttoshoppingcart_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Check Product Filter Functionality">
+        <classes>
+            <class name="testcases.TC07_ColorFilter">
+                <methods>
+                    <include name="filterproductbycolor_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 
-<!--    <test name="Check Add Product to Cart Functionality">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC09_AddToCart">-->
-<!--                <methods>-->
-<!--                    <include name="addproducttocart_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-<!--    <test name="Check Add product to Compare List Functionality">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC10_AddToComparelist">-->
-<!--                <methods>-->
-<!--                    <include name="addproducttocomparelist_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Chose Random Product from Jewelry Category">
+        <classes>
+            <class name="testcases.TC08_SelectRandomProduct">
+                <methods>
+                    <include name="addproducttoshoppingcart_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 
-<!--    <test name="Check Add product to Wish List Functionality">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC11_AddToWishlist">-->
-<!--                <methods>-->
-<!--                    <include name="addproducttowhishlist_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Check Add Product to Cart Functionality">
+        <classes>
+            <class name="testcases.TC09_AddToCart">
+                <methods>
+                    <include name="addproducttocart_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Check Add product to Compare List Functionality">
+        <classes>
+            <class name="testcases.TC10_AddToComparelist">
+                <methods>
+                    <include name="addproducttocomparelist_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test name="Check Add product to Wish List Functionality">
+        <classes>
+            <class name="testcases.TC11_AddToWishlist">
+                <methods>
+                    <include name="addproducttowhishlist_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 
     <test name="Check Order Submission Successful Message ">

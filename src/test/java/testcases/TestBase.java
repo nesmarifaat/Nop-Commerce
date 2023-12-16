@@ -15,31 +15,20 @@ import static drivers.DriverHolder.setDriver;
 
 public class TestBase {
     WebDriver driver;
-    Faker faker=new Faker();
+    Faker faker = new Faker();
 
     @Parameters("browser")
     @BeforeTest
-    public void setupDriver(String browser){
+    public void setupDriver(String browser) {
         driver = DriverFactory.getNewInstance(browser);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         setDriver(driver);
 
-//        //TODO: setup chrome driver using webdriver manager
-//        WebDriverManager.chromedriver().setup();
-//
-//        //TODO: Define driver object
-//        driver=new ChromeDriver();
-//
-//        //TODO: Configure driver
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        //TODO: Start the WEbsite
         driver.get("https://demo.nopcommerce.com/");
     }
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
         Thread.currentThread().interrupt();
     }
