@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import pages.P01_HomePage;
 import pages.P02_Registration;
 import org.testng.asserts.SoftAssert;
+import utilities.Utility;
 
 import static utilities.Utility.*;
 
@@ -35,6 +36,8 @@ public class TC01_Registration extends TestBase {
         Thread.sleep(800);
         new P02_Registration(driver).clickonregisterbutton();
         Thread.sleep(1000);
+        // TODO: capture screenshot
+      captureScreenshot(driver,"P_Registration");
 
 
     }

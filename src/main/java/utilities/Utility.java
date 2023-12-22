@@ -1,9 +1,12 @@
 package utilities;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -20,6 +23,20 @@ public class Utility {
         Random random = new Random();
         int index = random.nextInt(firstNames.length);
         return firstNames[index];
+    }
+
+    // TODO: Capture Screenshot
+    // TODO: Capture Screenshot
+    public static void captureScreenshot(WebDriver driver, String screenshotName) {
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        Date currntDate=new Date();
+        screenshotName=screenshotName+" "+currntDate.toString().replace(" ","-").replace(":","-");
+        try {
+            FileHandler.copy(takesScreenshot.getScreenshotAs(OutputType.FILE), new File(System.getProperty("user.dir")
+                    + "/src/test/resources/Screenshots/"+ screenshotName + ".png"));
+        } catch (WebDriverException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //TODO: Method to generate random lastname
