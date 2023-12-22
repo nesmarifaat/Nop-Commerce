@@ -1,12 +1,11 @@
 # Nop Commerce.
 
-![Nop Commerce Logo](68747470733a2f2f7777772e6e6f70636f6d6d657263652e636f6d2f696d616765732f6769746875622f726573706f6e736976655f646576696365735f636f6465706c65782e706e67237631.png)
+![Nop Commerce Logo](https://www.google.com/imgres?imgurl=https%3A%2F%2Fres.cloudinary.com%2Fpracticaldev%2Fimage%2Ffetch%2Fs--2NFpVakk--%2Fc_imagga_scale%2Cf_auto%2Cfl_progressive%2Ch_900%2Cq_auto%2Cw_1600%2Fhttps%3A%2F%2Fthepracticaldev.s3.amazonaws.com%2Fi%2Fuau33z3ej2yksuw1i0xo.jpg&tbnid=JSe1ORwxXZjQtM&vet=12ahUKEwjQupbIjaSDAxW0mCcCHcOGCwgQMyghegUIARCcAQ..i&imgrefurl=https%3A%2F%2Fdev.to%2Fdiogenespolanco%2Fcreating-a-nopcommerce-plugin-with-net-core-and-angular-part-i-b8h&docid=Wmrf74-LEhEZHM&w=1600&h=900&q=nopcommerce%20image%20jpg%20format&ved=2ahUKEwjQupbIjaSDAxW0mCcCHcOGCwgQMyghegUIARCcAQ)
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#Product Categories: Easy navigation to browse your product range)
-- [Usage](#usage)
 - [Contributing](#http://contributor-covenant.org/version/1/4)
 - [License](#http://opensource.org/licenses/GPL-3.0)
 
