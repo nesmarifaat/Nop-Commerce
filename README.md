@@ -1,6 +1,6 @@
 # Nop Commerce.
 
-![Nop Commerce Logo](https://www.nirvanacanada.com/wp-content/themes/nirvana/img/nopcommerce-development-img.jpg)
+![Nop Commerce Logo](https://www.weblineindia.com/wp-content/uploads/2015/03/NopCommerce-%E2%80%93-The-Ultimate-Open-Source-Ecommerce-Solution-1.jpg)
 ## Table of Contents
 
 - [Introduction](#introduction)
