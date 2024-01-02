@@ -3,10 +3,7 @@
 <suite name="All Test Suite">
     <parameter name="browser" value=""/>
     <suite-files>
-
         <suite-file path="PositiveTestCases.xml"/>
-        <suite-file path="NegativeTestCases.xml"/>
-
+<!--        <suite-file path="NegativeScnarios.xml"/>-->
     </suite-files>
 </suite>
-

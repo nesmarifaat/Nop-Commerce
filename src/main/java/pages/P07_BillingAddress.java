@@ -1,14 +1,13 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.NoSuchElementException;
+
+import static pages.PageBase.shortWait;
 
 public class P07_BillingAddress {
 
@@ -23,18 +22,29 @@ public class P07_BillingAddress {
     private final By country = By.xpath("//select[@id='BillingNewAddress_CountryId']");
 
     public P07_BillingAddress choosecountry(int index) {
+        try {
+            shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.country));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         WebElement country = driver.findElement(this.country);
         Select random = new Select(country);
         random.selectByIndex(index);
         return this;
     }
 
-    private final By state = By.xpath("//select[@data-trigger='state-select']");
+    private final By state = By.id("BillingNewAddress_StateProvinceId");
 
-    public P07_BillingAddress selectstate(int index) {
-        WebElement state = driver.findElement(this.state);
-        Select random = new Select(state);
-        random.selectByIndex(index);
+    public P07_BillingAddress selectstate() {
+        try {
+            shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.state));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
+      driver.findElement(this.state).click();
+        driver.findElement(this.state).sendKeys(Keys.ARROW_DOWN);
+        driver.findElement(this.state).sendKeys(Keys.ARROW_DOWN);
+        driver.findElement(this.state).sendKeys(Keys.ENTER);
         return this;
     }
 

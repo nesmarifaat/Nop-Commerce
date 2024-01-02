@@ -15,7 +15,7 @@
     </test>
 
 <!--    <test name="Check Login With Registration Data">-->
-<!--        <parameter name="browser" value="firefox"/>-->
+
 <!--        <classes>-->
 <!--            <class name="testcases.TC02_Login">-->
 <!--                <methods>-->
@@ -119,15 +119,15 @@
 <!--    </test>-->
 
 
-<!--    <test name="Check Order Submission Successful Message ">-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC12_SuccessfulOrder">-->
-<!--                <methods>-->
-<!--                    <include name="createsuccessfulOrder_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Check Order Submission Successful Message ">
+        <classes>
+            <class name="testcases.TC12_SuccessfulOrder">
+                <methods>
+                    <include name="createsuccessfulOrder_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 
 

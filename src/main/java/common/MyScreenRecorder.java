@@ -1,18 +1,14 @@
 package common;
-
-
 import org.monte.media.Format;
 import org.monte.media.FormatKeys.MediaType;
 import org.monte.media.Registry;
 import org.monte.media.math.Rational;
 import org.monte.screenrecorder.ScreenRecorder;
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import static org.monte.media.AudioFormatKeys.EncodingKey;
 import static org.monte.media.AudioFormatKeys.FrameRateKey;
 import static org.monte.media.AudioFormatKeys.KeyFrameIntervalKey;

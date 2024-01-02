@@ -1,5 +1,8 @@
 package testcases;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.P01_HomePage;
@@ -12,53 +15,65 @@ import static utilities.Utility.*;
 public class TC01_Registration extends TestBase {
 
 
-    static String email;
-    static String password;
+    static String email=faker.internet().emailAddress();
+    static String password=faker.internet().password();
+    String firstname = faker.name().firstName();
+    String lastname = faker.name().lastName();
+    int randomday = generaterandom(28);
+    int randommonth = generaterandom(12);
+    int randomyear = generaterandom(20);
 
+    String companyname = "Software";
+
+//    String confirmpassword = "1234ab";
+    String confirmpasswordII = "1234abbb";
+
+
+
+    @Description(" Check Registration Functionality with right data")
+    @Severity(SeverityLevel.BLOCKER)
     @Test(priority = 1, description = "Register New User With Valid Data")
-    public void registerNewUserWithValidData_P() throws InterruptedException {
+    public void registerNewUserWithValidData_P() {
 
-        String firstname = faker.name().firstName();
-        String lastname = faker.name().lastName();
-        int randomday = generaterandom(28);
-        int randommonth = generaterandom(12);
-        int randomyear = generaterandom(20);
-        email = faker.internet().emailAddress();
-        String companyname = "Software";
-        String password = "1234ab";
-        String confirmpassword = "1234ab";
 
         new P01_HomePage(driver).clickonregistrationtap();
-        //Thread.sleep(1500);
+
         new P02_Registration(driver).choosegender().fillfirstname(firstname).filllastname(lastname);
-        Thread.sleep(800);
-        new P02_Registration(driver).selectdayofbirth(randomday).selectmonth(randommonth).selectyearofbirth(randomyear).fillemail(email).fillcompanyname(companyname).fillpassword(password).fillconfirmpassword(confirmpassword);
-        Thread.sleep(800);
+
+        new P02_Registration(driver).selectdayofbirth(randomday).selectmonth(randommonth).selectyearofbirth(randomyear).fillemail(email).fillcompanyname(companyname).fillpassword(password).fillconfirmpassword(password);
+
         new P02_Registration(driver).clickonregisterbutton();
-        Thread.sleep(1000);
-        // TODO: capture screenshot
-      captureScreenshot(driver,"P_Registration");
+
+        captureScreenshot(driver, "P_Registration");
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(new P02_Registration(driver).validateregistrationmsg());
+        softAssert.assertAll();
 
 
     }
 
+    @Description("N_Check Registration Functionality with not matching password")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(priority = 2, description = "check registration with not matching confirmation password")
-    public void checkregwithnotmatchingpassword_N() throws InterruptedException {
+    public void checkregwithnotmatchingpassword_N() {
         SoftAssert softAssert = new SoftAssert();
         String firstname = faker.name().firstName();
         String lastname = faker.name().lastName();
-        int randomday = generaterandom(28);
-        int randommonth = generaterandom(12);
-        int randomyear = generaterandom(20);
-        String companyname = "Software";
-        String password = "1234ab";
-        String confirmpassword = "123aaa";
+
+
         email = faker.internet().emailAddress();
         new P01_HomePage(driver).clickonregistrationtap();
-        Thread.sleep(1000);
-        new P02_Registration(driver).choosegender().fillfirstname(firstname).filllastname(lastname).selectdayofbirth(randomday).selectmonth(randommonth).selectyearofbirth(randomyear).fillemail(email).fillcompanyname(companyname).fillpassword(password).fillconfirmpassword(confirmpassword).clickonregisterbutton();
-        Thread.sleep(2500);
+        new P01_HomePage(driver).clickonregistrationtap();
 
+        new P02_Registration(driver).choosegender().fillfirstname(firstname).filllastname(lastname);
+
+        new P02_Registration(driver).selectdayofbirth(randomday).selectmonth(randommonth).selectyearofbirth(randomyear).fillemail(email).fillcompanyname(companyname).fillpassword(password).fillconfirmpassword(confirmpasswordII);
+
+        new P02_Registration(driver).clickonregisterbutton();
+
+        captureScreenshot(driver, "N_Registration");
+        softAssert.assertTrue(new P02_Registration(driver).validatewrongpassmsg());
+        softAssert.assertAll();
 
     }
 

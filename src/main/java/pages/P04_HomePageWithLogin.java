@@ -1,16 +1,16 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Random;
+
+import static pages.PageBase.shortWait;
 
 public class P04_HomePageWithLogin {
     WebDriver driver;
@@ -23,6 +23,11 @@ public class P04_HomePageWithLogin {
     private final By search = By.xpath("//input[@type='text']");
 
     public P04_HomePageWithLogin searchproductfunctionality(String searchword) {
+        try {
+            shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.search));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         driver.findElement(this.search).sendKeys(searchword);
         return this;
     }
@@ -32,6 +37,11 @@ public class P04_HomePageWithLogin {
     private final By searchbutton = By.xpath("//button[@class='button-1 search-box-button']");
 
     public P04_HomePageWithLogin clickonsearchbutton() {
+        try {
+            shortWait(driver).until(ExpectedConditions.elementToBeClickable(this.searchbutton));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         driver.findElement(this.searchbutton).click();
         return this;
     }
@@ -43,6 +53,11 @@ public class P04_HomePageWithLogin {
     private final By customercurrency = By.xpath("//select[@id='customerCurrency']");
 
     public P04_HomePageWithLogin opencurrencymenu() {
+        try {
+            shortWait(driver).until(ExpectedConditions.elementToBeClickable(this.customercurrency));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         driver.findElement(this.customercurrency).click();
         return this;
     }
@@ -57,6 +72,12 @@ public class P04_HomePageWithLogin {
         return this;
     }
 
+    private final By currencychanged=By.xpath("(//option)[2]");
+
+    public Boolean checkcurrencychanges(){
+        return driver.findElement(this.currencychanged).getText().equals("Euro");
+    }
+
     //************************************************************************************
     //TODO:Select Random Category Locator and Method
     private final By allcategories = By.xpath("/html[1]/body[1]/div[6]/div[2]/ul[1]/li/a");
@@ -67,11 +88,14 @@ public class P04_HomePageWithLogin {
 
         Random random = new Random();
         int randomcategory = random.nextInt(allcategories.size());
-        // WebElement randomLink=driver.findElement(By.xpath("/html[1]/body[1]/div[6]/div[2]/ul[1]/li/a"));
         WebElement randomLink = allcategories.get(randomcategory);
         allcategories.get(randomcategory).click();
 
         return this;
+    }
+    private final By category=By.xpath("(//strong)[2]");
+    public Boolean checkifcategoriesdisplayes(){
+        return driver.findElement(this.category).isDisplayed();
     }
 
     //************************************************************************************
@@ -81,7 +105,6 @@ public class P04_HomePageWithLogin {
     public P04_HomePageWithLogin movetoapparelcategory() {
         Actions action = new Actions(driver);
         WebElement apparel = driver.findElement(this.apparel);
-        // action.moveToElement((WebElement) this.apparel).build().perform();
         action.moveToElement(apparel).build().perform();
 
         return this;
@@ -92,8 +115,7 @@ public class P04_HomePageWithLogin {
 
     private final By shoes = By.xpath("//ul[@class='sublist first-level']//a[@href='/shoes']");
 
-    public P04_HomePageWithLogin clickonshoessubcategory() throws InterruptedException {
-        Thread.sleep(1500);
+    public P04_HomePageWithLogin clickonshoessubcategory() {
         driver.findElement(this.shoes).click();
         return this;
     }
@@ -159,6 +181,18 @@ public class P04_HomePageWithLogin {
         js.executeScript("window.scrollBy(0,450)");
         return this;
 
+    }
+
+    private final By logout=By.xpath("//a[@href=\"/logout\"]");
+
+    public Boolean validatelogotisdisplayed(){
+        return driver.findElement(this.logout).isDisplayed();
+    }
+
+    private final By advancedsearch=By.xpath("//label[@for=\"advs\"]");
+
+    public Boolean checkifadvancedsearchdisplayed(){
+        return driver.findElement(this.advancedsearch).isDisplayed();
     }
 
 

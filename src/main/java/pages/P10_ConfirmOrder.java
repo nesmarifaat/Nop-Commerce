@@ -23,4 +23,9 @@ public class P10_ConfirmOrder {
         return this;
     }
 
+    private final By ordernum=By.xpath("//div[@class=\"order-number\"]");
+    public Boolean checkordernumberlink(){
+        return driver.findElement(this.ordernum).isDisplayed();
+    }
+
 }

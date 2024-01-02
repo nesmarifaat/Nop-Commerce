@@ -66,6 +66,13 @@ public class P05_Products {
         return this;
     }
 
+    private final By sucessmsg=By.xpath("//div[@class=\"bar-notification success\"]");
+    public Boolean ifsucessmsgdisplayed()
+    {
+        return driver.findElement(this.sucessmsg).isDisplayed();
+    }
+
+
     //*********************************************************************************
     //TODO:Nokia Lumia locator and method
     private final By NokiaLumia = By.xpath("//div[@class='picture']//img[@title='Show details for Nokia Lumia 1020']");
@@ -75,6 +82,8 @@ public class P05_Products {
         return this;
     }
 
+
+
     //*********************************************************************************
     //TODO: Add Nokia Lumia to compare list locator and methods
     private final By addtocomaprelist = By.xpath("//div[@class='compare-products']//button[@type='button'][normalize-space()='Add to compare list']");
@@ -82,6 +91,15 @@ public class P05_Products {
     public P05_Products addproducttocomparelist() {
         driver.findElement(this.addtocomaprelist).click();
         return this;
+    }
+
+    public Boolean ifaddtocomparelistvisible(){
+        return driver.findElement(this.addtocomaprelist).isDisplayed();
+    }
+
+    private final By productcomparison=By.xpath("//p[@class=\"content\"]");
+    public Boolean ifprodcomparisonmsgdisplayes(){
+        return driver.findElement(this.productcomparison).isDisplayed();
     }
 
 
@@ -112,6 +130,12 @@ public class P05_Products {
     public final P05_Products addproducttowishlist() {
         driver.findElement(this.addtowishlist).click();
         return this;
+    }
+
+    private final By wishlist=By.xpath("(//a[@href=\"/wishlist\"])[1]");
+
+    public Boolean checkwishlistlink(){
+        return driver.findElement(this.wishlist).isDisplayed();
     }
 
     //TODO: click on shipping cart

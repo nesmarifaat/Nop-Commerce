@@ -1,10 +1,15 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+
+import static pages.PageBase.longWait;
+import static pages.PageBase.shortWait;
 
 
 public class P02_Registration {
@@ -23,6 +28,11 @@ public class P02_Registration {
     private final By gender = By.id("gender-male");
 
     public P02_Registration choosegender() {
+        try {
+            longWait(driver).until(ExpectedConditions.elementToBeClickable(this.gender));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         driver.findElement(this.gender).click();
         return this;
     }
@@ -32,6 +42,11 @@ public class P02_Registration {
     private final By firstname = By.id("FirstName");
 
     public P02_Registration fillfirstname(String firstname) {
+        try {
+            shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.firstname));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         driver.findElement(this.firstname).sendKeys(firstname);
         return this;
     }
@@ -50,8 +65,13 @@ public class P02_Registration {
     private final By dayofbirth = By.xpath("//select[@name='DateOfBirthDay']");
 
     public P02_Registration selectdayofbirth(int index) {
+        try {
+            shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.dayofbirth));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
+
         WebElement dayofbirth = (WebElement) driver.findElement(this.dayofbirth);
-        //WebElement dayofbirth=driver.findElement(By.xpath("//select[@name='DateOfBirthDay']"));
 
         Select randomday = new Select(dayofbirth);
         randomday.selectByIndex(index);
@@ -63,6 +83,11 @@ public class P02_Registration {
     private final By month = By.xpath("//select[@name='DateOfBirthMonth']");
 
     public P02_Registration selectmonth(int index) {
+        try {
+            shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.month));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         WebElement month = driver.findElement(By.xpath("//select[@name='DateOfBirthMonth']"));
 
         Select randommonth = new Select(month);
@@ -76,6 +101,11 @@ public class P02_Registration {
     private final By year = By.xpath("//select[@name='DateOfBirthYear']");
 
     public P02_Registration selectyearofbirth(int index) {
+        try {
+            shortWait(driver).until(ExpectedConditions.visibilityOfElementLocated(this.year));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         WebElement year = driver.findElement(By.xpath("//select[@name='DateOfBirthYear']"));
         Select ranodmyear = new Select(year);
         ranodmyear.selectByIndex(index);
@@ -115,6 +145,7 @@ public class P02_Registration {
     private final By confirmpassword = By.id("ConfirmPassword");
 
     public P02_Registration fillconfirmpassword(String confirmpassword) {
+
         driver.findElement(this.confirmpassword).sendKeys(confirmpassword);
         return this;
     }
@@ -125,21 +156,28 @@ public class P02_Registration {
     private final By registerbutton = By.id("register-button");
 
     public P02_Registration clickonregisterbutton() {
+        try {
+            shortWait(driver).until(ExpectedConditions.elementToBeClickable(this.registerbutton));
+        } catch (TimeoutException ex) {
+            ex.printStackTrace();
+        }
         driver.findElement(this.registerbutton).click();
         return this;
     }
 
     //**********************************************************************************//
-    //TODO: not matching password msg locator and methods
-    private final By confirmpassworderror = By.id("ConfirmPassword-error");
 
-    public P02_Registration checkconfirmpassworderror() {
 
-        String error = driver.findElement(this.confirmpassworderror).getText();
-        return this;
+private final By registrationmsg=By.xpath("//div[@class=\"result\"]");
 
+    public Boolean validateregistrationmsg(){
+        return driver.findElement(this.registrationmsg).isDisplayed();
     }
 
+    private final By passerror=By.id("ConfirmPassword-error");
 
+    public Boolean validatewrongpassmsg(){
+        return driver.findElement(this.passerror).isDisplayed();
+    }
 
 }
